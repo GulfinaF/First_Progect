@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from selenium.common.exceptions import NoSuchElementException
 from .locators import ProductPageLocators
+from .basket_page import BasketPage
 
 class ProductPage(BasePage):
     def add_to_basket_button(self):
@@ -19,7 +20,7 @@ class ProductPage(BasePage):
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
-           "Success message is presented, but should not be"
+           "Success message is presented"
 
     def should_disappear_success_message(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
